@@ -1,0 +1,107 @@
+package findtimefree;
+
+/**
+ *
+ * @author Jamal Sharif
+ */
+public class Toolbar extends javax.swing.JFrame {
+
+    /**
+     * Creates new form Toolbar
+     
+     This toolbar will be added to each page so that you can properly navigate through the application
+     */
+    public Toolbar() {
+        initComponents();
+    }
+
+
+    @SuppressWarnings("unchecked")
+    //components wiill all be initialized
+    private void initComponents() {
+
+        MenuBar = new javax.swing.JMenuBar();
+        TaskMenu = new javax.swing.JMenu();
+        FindTimeMenu = new javax.swing.JMenu();
+        ScheduleMenu = new javax.swing.JMenu();
+        SettingsMenu = new javax.swing.JMenu();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+// Sets up the buttons
+        TaskMenu.setText("Tasks");
+        TaskMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TaskMenuMouseClicked(evt);
+            }
+        });
+        MenuBar.add(TaskMenu);
+
+        FindTimeMenu.setText("FindTime");
+        MenuBar.add(FindTimeMenu);
+
+        ScheduleMenu.setText("Schedule");
+        MenuBar.add(ScheduleMenu);
+
+        SettingsMenu.setText("Settings");
+        MenuBar.add(SettingsMenu);
+
+
+//Sets the layout of the Toolbar
+        setJMenuBar(MenuBar);
+        
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
+
+        pack();
+    }                      
+
+    private void TaskMenuMouseClicked(java.awt.event.MouseEvent evt) {                                      
+        // TODO add your handling code here:
+    }                                     
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Toolbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Toolbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Toolbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Toolbar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Toolbar().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration                    
+    private javax.swing.JMenu FindTimeMenu;
+    private javax.swing.JMenuBar MenuBar;
+    private javax.swing.JMenu ScheduleMenu;
+    private javax.swing.JMenu SettingsMenu;
+    private javax.swing.JMenu TaskMenu;
+    // End of variables declaration 
